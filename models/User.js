@@ -29,7 +29,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    // Formato: U20201234
     match: /^U\d{8}$/
   },
   facultad: {
@@ -77,9 +76,7 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-// Índices para búsquedas más rápidas
-userSchema.index({ email: 1 });
-userSchema.index({ codigoEstudiante: 1 });
+// Índice compuesto para búsquedas por facultad y carrera
 userSchema.index({ facultad: 1, carrera: 1 });
 
 module.exports = mongoose.model('User', userSchema);

@@ -57,6 +57,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // Rutas
 app.use('/api/auth', require('./routes/authRoutes'));
+app.use('/api/chatbot', require('./routes/chatbotRoutes'));
 
 // Ruta de prueba
 app.get('/', (req, res) => {
@@ -68,7 +69,9 @@ app.get('/', (req, res) => {
       register: 'POST /api/auth/register',
       login: 'POST /api/auth/login',
       profile: 'GET /api/auth/profile (protected)',
-      verify: 'GET /api/auth/verify (protected)'
+      verify: 'GET /api/auth/verify (protected)',
+      chatbot: 'POST /api/chatbot/message',
+      models: 'GET /api/chatbot/models'
     }
   });
 });
